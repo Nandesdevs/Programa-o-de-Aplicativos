@@ -1,0 +1,258 @@
+/*Resumo feito por um estudante de ADS sobre POO, Primeiro contato, totalmente teoria, irei fazer outro arquivo so de pratica*/
+
+-- Programação Orientada a Objetos. Definição e entendimento com o primeiro contato
+É um paradigma, ou seja, um padrão ou modelo a seguir.Portanto, é importante ressaltar que não se trata de uma linguagem de programação, mas sim de uma maneira de pensar
+soluções que poderão ser implementadas com linguagens de programação que possuam suporte a esse paradigma. Sendo assim, a OO orienta a correta aplicação de linguagens que são adequadas ao padrão.
+
+*PARTE 1 - O QUE É UM OBJETO*
+    Um objeto é criado a partir de uma classe, Aqui, objetos são extensões do mundo real para o mundo da programação.
+    Em resumo, os objetos correspondem a elementos da vida real e as classes agrupam esses objetos.
+
+    Quando falamos de carro(exemplo) estamos falando de uma classe, pois , não são especificadas as características do veículo, desse modo, várias características podem estar contidas
+    o importante é que se trata de um carro.
+
+    Agora, considere que um Gol 2016 está ao lado de um Fiesta 2015 na concessionária, localizada em uma
+    rua onde acabou de passar um Fusca 1964. Pode-se dizer, então, que o Gol 2016, o Fiesta 2015 e o Fusca
+    1964 são objetos da classe “carro”, sem importar sua marca ou ano de fabricação. Ou seja, são elementos
+    corriqueiros que pertencem ao mesmo tipo de classe estabelecida.
+
+    A gente pode represantar tipo classe: carro, objeto: Gol 2016, Fiesta 2015, Fusca 1964 que pertencem a classe carro
+
+    Objetos não nescessariamente pertencem ao mundo real. Eles podem ser divididos em 3 tipos:
+    1. Objetos tangíveis.
+        São itens físicos ou entidades de dados que representam coisas do mundo real no sistema.
+    2. Incidente (evento ou ocorrência).
+        É qualquer fato ou mudança de estado que acontece no sistema e exige uma resposta
+    3. De interação (transação ou contrato).
+        É a troca de informações ou o cumprimento de um acordo entre o usuário e o app (ou entre partes do código)
+
+    considere a situação descrita a seguir.
+    Você é dono de um restaurante. Em um domingo à noite, você recebe um casal de amigos. Eles fazem
+    o pedido, e, algum tempo depois, você lhes serve um prato de frutos do mar. Depois que terminam de
+    comer, eles pedem a conta e fazem o pagamento com um cartão de débito.
+
+    Todo o exemplo anterior é passível de uma situação no mundo digital, mesmo repleto de elementos pre-
+    sentes em nossas vidas. Está, portanto, cheio de objetos dos três tipos apontados por Puga e Rissetti (2003):
+
+    1. Objetos tangíveis:
+        • restaurante;
+        • cliente;
+        • prato de frutos do mar;
+        • cartão de débito.
+    2. Incidentes:
+        • receber o casal;
+        • servir o prato;
+        • fazer o pagamento.
+    3. Interações:
+        • fazer o pedido;
+        • pedir a conta.
+
+    Em relação a objetos, é preciso considerar que não há um modelo fechado em sua classificação, po-
+    dendo variar conforme a modelagem, de modo que haja uma enorme variedade de objetos e de classes.
+
+    “Pode-se imaginar um objeto como algo que guarda dentro de si os dados ou informações sobre sua estru-
+    tura (seus atributos) e possui um comportamento definido pelas suas operações.”
+
+    Quando um objeto é identificado com atributos e operações semelhantes em nosso sistema,
+    diz-se que ele pode ser agrupado em uma classe. Esse processo é chamado de generalização.
+    Por outro lado, pode ocorrer que um objeto, ao ser identificado, constitua-se, na verdade, de
+    uma classe de objetos, visto que dele podem se derivar outros objetos. Já esse processo é de-
+    nominado especialização
+
+    1- Objetos da mesma Classe: O "Molde" Único
+    Quando você define uma classe, você está criando um novo tipo de dado personalizado
+        . Se você criar uma classe chamada Filme, você define que todo filme precisa ter os campos "título" e "assistido"
+        .A estrutura é a mesma: Todos os objetos (instâncias) de Filme terão esses mesmos campos porque o molde os exige
+        .
+        Os valores são diferentes: O Objeto A pode ter o valor "Matrix" no campo título, enquanto o Objeto B tem "Avatar"
+        . Eles são "iguais" na forma, mas "diferentes" no conteúdo.
+    2. Classes Diferentes: "Moldes" Diferentes
+        O exemplo do círculo e do triângulo que você citou explica por que não usamos uma única classe para tudo.
+        Um Círculo é um molde que só faz sentido se tiver o campo diâmetro
+        .
+        Um Triângulo é um molde que exige base e altura para funcionar
+        .
+        Tentar colocar "diâmetro" em um triângulo seria como tentar usar uma fôrma de gelo para assar um bolo: os campos simplesmente não se encaixam na finalidade daquela estrutura
+
+    3. Por que isso é melhor que Dicionários?
+        No seu código antigo de dicionários, você poderia esquecer de digitar a chave "genero" em um dos filmes, e o Python não te avisaria até o programa dar erro.
+        Com Classes: O Python garante que, se o molde diz que tem "gênero", todo objeto criado a partir dele terá esse campo, evitando surpresas durante a execução
+        .
+        Legibilidade: Segue o princípio do Zen de Python de que "Explícito é melhor que implícito", pois a estrutura do objeto está claramente definida na classe
+
+        *EXEMPLO PARA FIXAR:*
+    1. Dicionários: A Anotação Flexível
+        Dicionários são ótimos para programas pequenos e protótipos rápidos porque oferecem buscas rápidas por chaves e flexibilidade total
+        .
+        O problema em sistemas grandes: Como não há um "molde" obrigatório, você pode esquecer de colocar o ingrediente "fermento" em um dos seus dicionários de bolo. O Python não te avisará do erro até que você tente "assar" (executar) aquela parte específica do código e ele falhe.
+    2. POO: O Contrato da Receita
+        A Programação Orientada a Objetos é ideal para sistemas complexos porque utiliza a Classe como um contrato ou molde
+        .
+        A garantia da "Receita": Se você define na classe Bolo que os campos "farinha" e "ovos" são obrigatórios no método inicializador (__init__), o Python impedirá a criação de qualquer objeto bolo que esteja incompleto.
+        Silenciando Erros: Isso segue o princípio do Zen de Python: "Erros nunca devem passar silenciosamente"
+        . Na POO, o erro aparece no momento em que você tenta criar o objeto, e não apenas quando o programa já está rodando há horas.
+
+    Dicionários: Difícil de manter em projetos com 1000 receitas.
+    POO: Garante que as 1000 receitas sigam o mesmo padrão
+
+    Na Programação Orientada a Objetos (POO), a definição de um objeto baseia-se na união de características (atributos) e ações (métodos), 
+    que juntas formam as responsabilidades de uma entidade individual e concreta.
+
+    1. Atributos: O "Saber" (Características)
+        Os atributos representam o estado ou os dados de um objeto
+        . Eles definem o que o objeto "sabe" sobre si mesmo.
+        Campos e Valores: Como mencionado no seu texto, objetos da mesma classe possuem os mesmos campos (nomes de atributos), mas valores diferentes
+        .
+        Exemplo: Se tivermos duas instâncias da classe Caneta, ambas terão o campo cor_da_tinta. No entanto, o valor desse atributo em um objeto pode ser "azul" e no outro "vermelho", conferindo-lhes individualidade dentro da mesma abstração
+    *SELF LIGA O SABER E O FAZER*
+    O que é o self?
+        O self é o mecanismo que o Python usa para que o objeto possa referenciar a si mesmo
+        . Quando você define um método dentro de uma classe, o primeiro argumento deve ser sempre o self
+        . Ele funciona como um crachá de identificação: diz ao programa exatamente de qual objeto estamos falando naquele momento.
+        o self garante que o Python acesse os atributos do objeto correto, evitando confusão entre os dados de diferentes instâncias
+    2. O "Fazer" (Comportamento): O método define as ações ou comportamentos de um objeto. Sae os atributos são o que o objeto "sabe" (dados), os métodos são o que o objeto faz (processamento).
+        funções anexdas à classe que definem o comportamento    
+        Identidade via self: Para que essa função possa agir sobre os dados do próprio objeto, ela deve receber obrigatoriamente o parâmetro self como seu primeiro argumento
+        . Esse parâmetro é o "elo de ligação" que permite ao método acessar os atributos daquela instância específica para realizar sua tarefa
+
+    *RESUMINDO COM MINHAS PALAVRAS*
+        O saber são os valores de um atributo de um objeto, a gente usa o self para saber que a gente ta usando o objeto certo com os atributos certos e executa alguma ação com esses atributos usando o fazer/metodo.
+
+    O exemplo anterior demonstra que cada objeto possui a responsabilidade de saber suas características,
+    ou seja, atributos, e de fazer suas ações, isto é, de executar seus métodos de forma individual e com suas
+    diferenças decorrentes das suas responsabilidades.
+* PARTE 2 CLASSE*
+    Para entendermos melhor classe eu fiz um comparativo com banco de dados e perguntei a ia se minha linha de raciocinio estava correta
+    o comparativo foi: "então uma classe seria como uma tabela com seus campos e atributos e um objeto seria os dados armazenados nessa tabela(estou usando como exemplo meus conhecimentos de banco de dados)"
+    sua resposta foi:
+        Sua analogia com banco de dados é excelente e tecnicamente muito precisa para entender a relação entre estrutura e instância. Em Python, essa organização visa justamente garantir a consistência que você mencionou ao citar a "receita de bolo".
+        Aqui está o comparativo direto entre os conceitos de POO e Banco de Dados, baseado no texto que você trouxe e nos fundamentos da linguagem:
+    1. Classe ≈ Definição da Tabela (Schema)
+        Assim como o comando CREATE TABLE define o nome das colunas e os tipos de dados que serão aceitos, a classe é a "abstração", o projeto ou "molde de biscoito" que serve de referência para criar os itens. Ela estabelece as "características mais gerais possíveis" que todos os itens desse tipo compartilharão
+    2. Atributo ≈ Campo ou Coluna
+        Os atributos são as "características visíveis externamente", como cor dos olhos ou do cabelo. No banco de dados, seriam as colunas da sua tabela. Eles representam o "saber" do objeto, ou seja, os dados que ele carrega consigo.
+    3. Objeto ≈ Registro (Linha) com Granularidade Definida
+        Nesta visão, o objeto não é apenas o dado inserido na tabela, mas a aplicação da estratégia de Abstrair
+        A Mudança: Em um banco de dados comum, costuma-se salvar o máximo de detalhes possível em uma linha. Na POO, ao criar um objeto, você aplica a abstração para "limitar ao máximo possível o detalhamento" (granularidade) dos dados que esse registro carrega
+        .O Exemplo: Se a sua "tabela" (Classe) é Estudante, em vez de cada "linha" (Objeto) conter o endereço completo com rua e número, você abstrai o atributo para salvar apenas o "Bairro" ou "Cidade". O objeto torna-se uma representação simplificada e segura da realidade 
+    4. Comportamento (Método) ≈ "Interface Protegida" (Stored Logic)
+        Aqui, o método deixa de ser apenas uma "ação" e passa a ser o guardião da estratégia de Ocultar 
+        A Mudança: Diferente de uma tabela de banco de dados onde qualquer SELECT lê todas as colunas, na POO o método serve para restringir o acesso aos dados sensíveis da linha
+        . Você "oculta" os atributos (colunas) para que eles fiquem "inobserváveis" para o resto do sistema
+        A Lógica: O método (Fazer) é a única via oficial para interagir com o "Saber" (Atributo)
+        . Ele usa o self para acessar as colunas privadas internamente, mas só devolve para o usuário o que for seguro. É como se a linha da tabela tivesse uma "tranca" e apenas o método possuísse a chave para ler ou alterar os valores.
+
+    #Para reforçar os conceitos:
+    a/ Atributos são as características de uma classe visíveis externamente. A cor dos olhos e a cor dos
+    cabelos são exemplos de atributos. Um objeto pode expor um atributo fornecendo um link direto a
+    alguma variável interna ou retornando o valor através de um método.
+    b/ Comportamento é uma ação executada por um objeto quando uma mensagem é recebida ou em
+    resposta a uma mudança de estado. Em outras palavras, é algo que um objeto faz. Um objeto pode
+    exercer o comportamento de outro, executando uma operação sobre esse objeto.
+
+    # Superclasse e Subclasse:
+    Superclasse é a classe utilizada como base para as que serão criadas posteriormente, servindo como
+    modelo estrutural dos objetos e métodos. Ela pode ser direta quando serve como fonte explícita; ou in-
+    direta, quando faz as vezes de fonte para uma classe de dois ou mais níveis inferiores na hierarquia. As
+    superclasses são comumente conhecidas como “classe pai”.
+
+    Subclasse, por sua vez, é uma nova classe que herdará os componentes de uma superclasse. Ela tam-
+    bém pode ser empregada como superclasse para outro conjunto de objetos criados posteriormente, as-
+    sim, uma mesma classe pode ser uma superclasse e subclasse ao mesmo tempo, sem causar nenhum erro
+    no código. 
+    As subclasses são comumente conhecidas como “classes filhas”.
+    É importante que você se lembre de que todo objeto de uma subclasse pertence a sua superclasse, mas
+    nem todos os objetos de uma superclasse estarão naquela que herdou seus atributos e métodos.
+
+    #Instanciação
+    Em programação orientada a objetos, a dinâmica entre instanciação e referência é impor-
+    tante para tornar os softwares mais ágeis e leves. Os objetos acabam por se comunicar
+    entre si, importando seus atributos e métodos. “O usuário de um programa apenas inicia
+    o programa (que normalmente cria um primeiro objeto) e todos os outros objetos são
+    criados– direta ou indiretamente – por esse objeto.”
+
+*PARTE 3 CONCEITOS FUNDAMENTAIS*
+    A Orientação a Objetos (OO) é estruturada em quatro pilares, identificados como Abstração, Herança,
+    Polimorfismo e Encapsulamento. Esses pilares definem como a OO é constituída e as vantagens desse pa-
+    radigma de programação.
+
+    *abstração*
+        A abstração é o pilar da Programação Orientada a Objetos (POO) que permite mapear o mundo real para o código, transformando entidades concretas em modelos conceituais
+        . Como você bem observou, esse processo organiza a estrutura do software através de três elementos fundamentais: uma identidade única (nome da classe), propriedades (atributos) e ações (métodos)
+        
+        As 2 Grandes Vantagens:
+        Facilidade na Resolução: Você foca apenas no que importa para o domínio do problema, tornando a lógica mais clara (seguindo o Zen de Python: "Simples é melhor que complexo")
+        Reutilização de Código: Evita a "especialização em excesso". Você cria uma solução geral uma única vez e a utiliza em várias partes do sistema, o que facilita muito a manutenção futura
+
+        considerações: Embora seja difícil no começo, escrever código abstrato evita que seu programa fique "engessado" e difícil de mudar depois que crescer
+
+    *Herança*
+        1. Herança: O Relacionamento "É um"
+        A herança é a ferramenta definitiva para reutilização de código. Ela permite que uma nova classe (subclasse) "absorva" tudo o que uma classe já existente (superclasse) possui, adicionando ou melhorando capacidades
+        A Lógica: Se a subclasse herda da superclasse, ela é um tipo daquela categoria.
+        Exemplo: Um Carro (subclasse) é um Veículo (superclasse). Por ser um veículo, ele herda automaticamente as propriedades básicas, mas o contrário não é verdadeiro
+
+        2. Composição: O Relacionamento "Tem um"
+        Quando você quer usar as funcionalidades de outro objeto sem que a sua classe "seja" ele, você usa a composição.
+        A Lógica: O objeto principal tem uma referência para outro objeto como um de seus membros.
+        Exemplo: Um Carro não "é um" motor, mas ele tem um motor e tem uma direção
+
+        3. A Analogia Genética (A Árvore Genealógica)
+        A herança funciona como a transmissão de traços biológicos entre gerações
+        Atributos Herdados (O Saber): São as características físicas, como a cor dos olhos ou a altura, que passam de pais para filhos
+        Métodos Herdados (O Fazer): São os comportamentos ou o modo de ser que também são transmitidos pela descendência
+
+        Por que usar Herança?
+        Economia de Tempo: Você não precisa escrever o mesmo código várias vezes.
+        Segurança e Sucesso: Você utiliza códigos que já foram testados e aprovados anteriormente, o que diminui as chances de erros no novo sistema.
+
+    *Polimorfismo*
+        A palavra significa "muitas formas" e, na programação, representa a diversidade entre objetos que possuem a mesma origem, Ele ocorre quando as classes filhas herdam um "fazer" (método) da classe pai, mas decidem executá-lo de um jeito diferente 
+        O Exemplo do Veículo
+        Imagine o comando "acelerar" em uma superclasse chamada Veículo:
+        O Carro (Filho 1): Herda o método "acelerar", mas sua forma de fazer isso envolve o funcionamento do motor a combustão e o pedal.
+        O Avião (Filho 2): Também herda o "acelerar", mas o executa através de turbinas e outras particularidades técnicas .
+        A Conclusão: Ambos têm a mesma capacidade (o nome do método é o mesmo), mas o resultado interno é diferente. Essa diversidade é o polimorfismo .
+        As 2 Grandes Vantagens:
+            Programação Ampla (Tratamento Igual): Você pode escrever um código que processe qualquer "Veículo" sem precisar saber se ele é um carro ou um avião no momento. O sistema tratará todos como parte da mesma superclasse, economizando tempo no desenvolvimento de códigos específicos 
+            
+            Sistemas Extensíveis: Fica muito mais fácil incluir novas classes (como um "Barco") com poucas modificações no sistema, já que ele já está preparado para lidar com a ação geral de acelerar, independente de como ela é feita
+    
+    *Encapsulamento*
+        O encapsulamento é o pilar da POO que cuida da organização e proteção do seu código. Para facilitar, imagine que uma Classe é uma caixa fechada (uma cápsula) que contém tudo o que o objeto "sabe" e "faz".
+        É a capacidade de juntar o saber (atributos) e o fazer (métodos) dentro de uma única unidade: a Classe.
+        
+        Antes (Anos 40): O código era repetido em vários lugares.
+        Depois (POO): Tudo o que pertence a um "Estudante" ou a um "Carro" fica guardado dentro da sua respectiva classe, facilitando encontrar e corrigir erros
+
+         Nem todo mundo pode mexer direto nos dados (atributos) de um objeto, porque isso pode "quebrar a receita" 
+            Exemplo: Em um sistema bancário, você não quer que qualquer parte do programa mude o saldo diretamente para 1 milhão. O saldo deve ficar oculto (protegido) dentro da classe.
+        3. O que são Getters e Setters? (Os Porteiros)
+            Como os atributos estão "escondidos" para segurança, você precisa de meios oficiais para interagir com eles. É aqui que entram esses métodos especiais:
+            Getter (O "Pegador"): É um método feito apenas para ler um valor. Ele responde à pergunta: "Pode me dizer qual é o valor desse atributo?" [User Query Text].
+            Setter (O "Configurador"): É um método feito para alterar um valor. Ele é o "porteiro" que valida a entrada: "Quero mudar o saldo para X. O valor X é válido? Se sim, eu altero"
+        Em resumo: Encapsular é esconder o "saber" dentro de uma caixa e só permitir que o "fazer" (através de Getters e Setters) manipule esses dados de forma controlada.
+
+
+Explicação extra apos a parte pratica:
+    Mensagem minha para o chat:
+        "então os dados ficam salvos no banco de dados e o sistema puxa pela primary key os dados
+        e faz um objeto temporario para executar o metodo? e o saber a gente teria que fazer campos igual no banco de dados certo?"
+    Resposta:
+        então os dados ficam salvos no banco de dados e o sistema puxa pela primary key os dados e faz um objeto temporario para executar o metodo? e o saber a gente teria que fazer campos igual no banco de dados certo?
+        Você está exatamente no caminho certo! Sua intuição sobre como os sistemas modernos funcionam é muito precisa. Vamos validar esses dois pontos fundamentais com base na teoria e na prática que estamos construindo:
+        1. O ciclo: Banco de Dados → Objeto Temporário → Método
+        Sim, é exatamente assim. Como o computador tem dois tipos de "memória" (o HD/SSD para guardar para sempre e a RAM para processar rápido), o fluxo funciona desta forma:
+        Persistência (Banco de Dados): Os dados (como o saldo e o CPF) ficam guardados no banco de dados. Lá eles são apenas "informação parada"
+        .
+        A Busca (Primary Key): Quando você precisa fazer um saque, o sistema usa um identificador único — a Primary Key (que pode ser o CPF ou um ID) — para localizar aquela Linha específica na tabela [17, Histórico].
+        Instanciação (Objeto Temporário): O Python "puxa" esses dados e os usa para preencher o seu __init__. Nesse momento, você cria um Objeto na memória RAM
+        . Ele é "temporário" porque, se você desligar o computador, ele some da RAM, mas o que foi salvo no banco continua lá.
+        Execução (Método): Com o objeto vivo na memória, você chama o método sacar() ou depositar() para realizar a lógica de negócio
+        .
+        2. O "Saber" e os Campos do Banco
+        Sim, eles precisam ser equivalentes. Na sua documentação de POO, você definiu que Classe ≈ Tabela e Atributo ≈ Coluna
+        .
+        Se no seu banco de dados você tem as colunas titular, saldo_inicial e cpf, a sua classe Python deve ter atributos correspondentes no self para poder carregar essas informações
+        .
+        Rastreabilidade: Isso garante que, se você mudar um requisito no "mundo real" (como adicionar um campo "Data de Nascimento"), você saberá que precisa atualizar tanto o banco de dados quanto o "Saber" da sua classe

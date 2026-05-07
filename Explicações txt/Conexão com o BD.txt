@@ -1,0 +1,84 @@
+/*Resumo feito por um estudante de ADS sobre Conexão com Banco de Dados, Primeiro contato, totalmente teoria, irei fazer outro arquivo so de pratica*/
+
+Breve Introdução
+    Com a evolução da computação, um novo recurso passou a ser utilizado: o arquivo. Muito comuns em
+    nosso cotidiano, os arquivos têm como principal finalidade o armazenamento de grandes quantidades de in-
+    formação por um grande período de tempo, como, por exemplo, os arquivos mantidos por uma companhia
+    telefônica acerca de seus assinantes, ou as informações armazenadas na Receita Federal sobre os contribuintes.
+
+    Pode-se definir um arquivo como “um conjunto de registros (ou seja, é uma estrutura de dados) no qual
+    cada registro não ocupa uma posição fixa dentro da estrutura, não possuindo, portanto, tamanho preesta-
+    belecido.Os registros, como sabemos, são formados por unidades de informação denominadas campos.”
+
+    Em diversas situações precisamos de soluções mais robustas e confiáveis para armazenamento de in-
+    formações. Para atender a essas condições utilizamos Banco de Dados, que nada mais são, do que uma
+    coleção de dados inter-relacionados e um conjunto de programas para acessar esses dados.
+
+    A principal diferença entre armazenar dados em arquivos e armazená-los em um banco de dados é a
+    forma como os dados são organizados.
+
+    O Python não possui acesso nativo a um banco de dados em sua biblioteca padrão, mas define uma
+    interface de programação padrão (API) que os drivers de acesso a esses bancos de dados devem seguir,
+    assim qualquer que seja o banco de dados os procedimentos são parecidos.
+
+    Os quatro principais bancos de dados livres que podem ser acessados do Python são o SQLite, o MySQL,
+    o PostgreSQL e o Interbase/Firebird.
+
+Acessando BD pelo MySQL
+    Vamos demonstrar aqui com o MySQL.Primeiro você precisa ter o MySQL baixado na maquina, é necessário também instalar a API MySQL-Python.
+
+    Primeiro:
+        Importamos os drivers:
+            import MySQLdb
+        E utilizamos o seguinte código para fazer a conexão:
+            con = MySQLdb.connect(host=”ServidorMysql”, user=”UsuarioMysql”,
+            passwd=”SuaSenha”, db=”SeuDb”)
+            con.select_db(‘banco de dados’)
+
+    Daqui para frente, podemos fazer diversas interações com o banco de dados. Tais interações usam uma linguagem de consultas chamada SQL (Structured Query Language).
+    Para obter uma transação:
+        cursor = con.cursor()
+    Para executar um comando SQL:
+        cursor.execute(‘INSERT INTO TABELA (CAMPO1, CAMPO2, CAMPO3)
+        VALUES (?,?,?)’, (valor1, valor2, valor3))
+
+    As variáveis valor1, valor2 e valor3 devem ser de um tipo compatível com a coluna correspondente
+    do banco no SQL. Isso porque ao passar parâmetros para o SQL dessa forma, você deixará o tratamento
+    de valores a cargo do módulo de conexão ao seu banco. Por exemplo, se valor1 for uma string, o módulo
+    automaticamente colocará o valor entre aspas no lugar de “?”. Se valor2 for uma data (datetime.datetime),
+    o módulo irá convertê-la para o formato do banco. Isso é útil também para evitar um tipo de falha de segu-
+    rança denominado SQL injections.
+
+    Depois de fazer um insert, update, ou delete, deveremos chamar o método commit() da conexão, para
+    que as mudanças tenham efeito no banco.
+        con.commit()
+    
+    Para obter resultados, usamos:
+        rs = cursor.fetchone() # busca uma linha ou;
+        rs = cursor.fetchall() # busca todas as linhas ou;
+        rs = cursor.dictfetchall() # busca todas as linhas,
+            # cada linha tem um dicionário
+            # com os nomes dos campos
+    Os resultados estarão nos campos:
+        print(rs[0]) # valor da primeira coluna.
+    A seguir apresentamos um programa exemplo:
+        #!/usr/bin/python
+        # -*- coding: latin-1 -*-
+        # Importa o modulo de conexao com o mysql
+        import MySQLdb
+        # Gera a string de conexao ex.: seu host, seu usuario, sua senha e seu db
+        db = MySQLdb.connect(host=”localhost”, user=”admin”, passwd=”suasenha”, db=”seudb”)
+        # Posiciona o cursor
+        cursor = db.cursor()
+        # Executa a consulta na tabela selecionada
+        cursor.execute(“SELECT * FROM seudb.suatabela”)
+        # Conta o numero de linhas na tabela
+        numrows = int(cursor.rowcount)
+        # Obtendo resultados
+        print “--------------------------------------------------”
+        print “| ID Campo |”
+        print “--------------------------------------------------”
+        # Laço for para retornar os valores, ex.: row[0] primeira coluna, row[1] segunda coluna,
+        row[2] terceira coluna, etc.
+        for row in cursor.fetchall():
+        print “ “,row[0],” “,row[1]

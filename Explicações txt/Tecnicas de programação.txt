@@ -1,0 +1,214 @@
+/*Resumo feito por um estudante de ADS sobre Tecnicas de Programação, Primeiro contato, totalmente teoria, irei fazer outro arquivo so de pratica*/
+
+Definição
+    O estudo de Técnicas de Programação compreende os conceitos e boas práticas para a cria-
+    ção de programas de computadores, através de técnicas que possibilitam melhorar o desem-
+    penho de um programa, minimizar a probabilidade de defeitos em sua execução, e também
+    permitir uma manutenção mais eficiente em seu código.
+
+Há várias técnicas que nos permitem organizar o trabalho de de-
+senvolvimento de software, além disso, precisamos analisar também em que etapa estamos atuando para
+podermos utilizar as técnicas apropriadas.
+As etapas para o desenvolvimento de um programa são:
+    ANALISE:O estudo do problema
+        Antes de abrir o editor de código, você precisa entender o "mundo real" do problema para identificar o que é essencial.
+        Identifique quais informações o programa precisa receber para começar.
+        Dados de entrada:Aqui você define os Atributos. Se estiver analisando um sistema de biblioteca, os dados de entrada seriam o título do livro, autor.
+        Processamento dos dados: Aqui você identifica os Métodos. Quais ações o sistema deve realizar com esses dados? (ex: emprestar livro, devolver, verificar disponibilidade)
+        Dados de saida:  É o resultado esperado após o processamento (ex: um comprovante de empréstimo ou a atualização do status do livro).É o objetivo final. O que o usuário deve ver na tela após o processamento
+        o primeiro passo para desenvolver um app competitivo é entender a dor central que ele resolve e validar a oportunidade antes de pensar no layout.
+
+    ALGORITIMO:O plano de ação
+        O algoritmo é a lógica antes do código. É o roteiro de como os métodos vão manipular os atributos.
+        O algoritmo é a "receita" escrita em linguagem humana antes de ir para o computador. É aqui que você define o passo a passo que os dados seguirão
+            Ferramentas: Você pode usar fluxogramas ou o "Português Estruturado" (pseudocódigo) para descrever a solução de forma lógica 
+            Lógica de Programação: A lógica é universal e se aplica a todas as linguagens. Se o seu algoritmo for bom, ele funcionará em qualquer linguagem, não apenas em Python
+    CODIFICAÇÃO:A Transformação em Python(Ou na linguagem desejada)
+        Nesta etapa, o plano lógico é escrito seguindo a sintaxe rigorosa da linguagem escolhida
+            Sintaxe de Python: A codificação em Python prioriza a legibilidade e a simplicidade, permitindo que você escreva o programa com menos linhas do que em outras linguagens
+            Teste e Depuração: É aqui que você executa o programa e verifica se ele realmente entrega a saída que você planejou na fase de Análise.
+    Portanto, um programa é a codificação de um algoritmo em uma linguagem de programação
+
+Formatação
+    Ela ajudará na leitura eficiente do código. Dessa forma, seu código aparentará ser mais organizado e,
+    quando alguém o olha, isso também ajuda a dar uma boa impressão do seu trabalho.
+
+    A formatação torna-se ainda mais importante quando você trabalha em uma equipe que compartilha o
+    desenvolvimento de um mesmo projeto de software. O código que você escreve deverá ser compreendido
+    por seus colegas de equipe, caso contrário, será mais difícil trabalhar juntos.
+
+    Além disso, um código mal formatado pode tornar muito difícil detectar bugs ou até mesmo evoluir o
+    programa com a adição de novas funcionalidades.
+
+    Indentação
+    Indentação é uma forma de arrumar o código, fazendo com que algumas linhas fiquem mais à direita
+    que outras, à medida que adicionamos espaços (ou tabulações) em seu início. Para a maioria das lingua-
+    gens, a indentação não é obrigatória, mas no caso Python isso é diferente.
+    
+    Em outras palavras, se a indentação não estiver adequada, o programa pode se comportar
+    de forma inesperada ou até mesmo não compilar.
+
+    A recomendação é que utilizemos ou 1 tabulação (com o uso da tecla TAB), ou então, 4 espaços.
+
+    Em algumas linguagens de programação a indentação não é obrigatória, ou seja, o
+    programa é executado mesmo sem ela ser implementada. No entanto, o uso da indentação aumenta a
+    legibilidade do código.
+
+Documentação do codigo
+    A documentação de código ou documentação de software é um texto complementar escrito junto com
+    o código fonte que acompanha o software ao longo do seu ciclo de vida. Tem como principal objetivo ex-
+    plicar como utilizá-lo ou como partes desse código funcionam.
+    
+    Um software bem documentado tem menos chance de vir a dar problema no futuro, compensando em
+    muito o tempo gasto no detalhamento da documentação.
+
+    Um texto inserido no programa, que é omitido em tempo de execução, é chamado de comentário.
+    Sempre que o interpretador Python encontra um comentário em seu programa, ele é desconsiderado
+    para efeitos práticos.
+    comentário em python = #
+
+Reutilização de codigo
+    O conceito de reutilização de código pode ser interpretado como uma maneira de otimizar o tempo de
+    desenvolvimento e manutenção. No entanto, a reutilização não se limita a apenas “copiar e colar” trechos
+    de código. Pelo contrário, temos formas de reutilização tanto do ponto de vista de código mesmo, como
+    de processo. Algumas formas de reutilização:
+        Funções:
+            quando criamos uma função dentro de um programa, estamos possibilitando que um mesmo trecho
+            de código seja chamado de diferentes pontos do sistema. Essa função pode ser genérica o suficiente
+            para ser útil não apenas em vários pontos de um mesmo sistema, como também em outros sistemas
+            (mas nesse caso ela passaria a fazer parte de uma biblioteca).
+        Biblioteca de software:
+            são uma forma comum de reutilização, pois essas bibliotecas implementam serviços que podem ser
+            usados por programas, disponibilizando funcionalidades comuns a diferentes tipos de sistemas, por
+            exemplo: converter tipos de dados, acesso a recursos, arquivos e banco de dados.
+        Framework:
+            são aplicações incompletas, formadas por interfaces, classes abstratas e classes concretas, formando
+            uma estrutura genérica. Podem ser usados para apoiar a infraestrutura de sistemas, como a parte de
+            comunicações, interfaces de usuário e compiladores. No entanto, um framework normalmente é uma
+            entidade grande e complexa, podendo levar um longo tempo para entendê-lo e usá-lo efetivamente
+            – o desenvolvedor pode querer apenas uma funcionalidade simples.
+        Padrão de projeto:
+            um padrão é uma descrição do problema e a essência da sua solução, documentando boas soluções
+            para problemas recorrentes. Deve ser suficientemente abstrato para ser reutilizado em aplicações
+            diferentes, permitindo a reaplicação do conhecimento anterior documentado em boas práticas.
+        Modelos de codigo:
+            a reutilização no nível de código é geralmente mais difícil, pois envolve vários detalhes específicos da
+            solução ou tecnologia adotada. Para isso, deve-se elevar o nível de abstração, criando modelos que
+            tenham vida útil mais longa e facilitem a comunicação entre desenvolvedores.
+    
+    Vejamos a seguir algumas formas de otimização de código, outro aspecto muito importante na progra-
+    mação.
+
+TÉCNICAS DE OTIMIZAÇÃO DE CÓDIGO
+    Desenvolver um bom aplicativo não significa apenas deixá-lo funcionando corretamente; é preciso
+    também pensar no seu desempenho. A otimização de código permite produzir programas mais rápidos
+    e mais curtos, usando menos recursos como processador e memória. Consequentemente, podemos citar
+    que, em larga escala, a otimização possibilita redução de custos, como energia elétrica, por exemplo.
+
+    O objetivo da etapa de otimização de código é aplicar um conjunto de heurística(Em ciência da computação, heurística é uma técnica de resolução de problemas que prioriza a velocidade e eficiência em detrimento da exatidão ou otimalidade da solução) para detectar sequên-
+    cias de código ineficientes. Observe a seguir algumas estratégias que podem ser adotadas:
+
+    Eliminação de desvios desnecessarios:
+        a concatenação de código gerado por duas expressões no programa original
+        gera um situação de desvio incondicional para a linha seguinte, não sendo
+        necessário atribuir esse direcionamento.
+    Eliminação do codigo reduntante:
+        Busca identificar e remover instruções que, se executadas repetidamente, não alteram o resultado final. Na prática, isso evita o desperdício de tempo de processamento com operações que já foram resolvidas.
+    Eliminação de Código Não Alcançável (Código Morto):
+        O "código morto" são partes do programa que nunca serão executadas, como uma linha de código escrita logo após um comando de return ou um desvio incondicional. Identificar e remover essas linhas é vital na etapa de Refatoração, pois limpa a base de código, melhora a legibilidade e evita confusão durante a manutenção
+    Uso de Propriedades Algébricas:
+        O compilador substitui expressões matemáticas complexas por versões mais simples e rápidas. Por exemplo, em vez de o computador calcular uma potência como a a^2
+        (que exige uma função mais pesada), ele substitui por uma multiplicação simples a×a.
+        Performance: Em Python, bibliotecas como NumPy utilizam internamente otimizações desse tipo em C para garantir uma velocidade de execução muito superior à do Python puro em cálculos matemáticos.
+    Eliminação de Expressões Comuns (Reuso de Cálculos):
+        Essa técnica consiste em identificar quando uma mesma conta é feita várias vezes no código e substituí-la pelo reaproveitamento de um resultado já calculado.
+        Como funciona: Se o seu programa calcula (a + b) em três linhas diferentes, o compilador ou o programador faz esse cálculo uma única vez, armazena em uma variável temporária e usa esse valor nas vezes seguintes.
+        Vantagem: Reduz a carga de processamento do processador, gerando um código final menor e mais rápido.
+    Movimentação de Código (Otimização de Laços):
+        Esta técnica é aplicada especificamente em estruturas de repetição, como os laços for e while
+        O Problema: Muitas vezes, colocamos um cálculo dentro de um laço que resulta sempre no mesmo valor em todas as voltas (iterações). Por exemplo, multiplicar uma variável que muda por uma constante que nunca muda.
+        A Solução: O compilador identifica essas constantes invariantes e move o cálculo para fora do laço. Assim, em vez de o computador fazer a mesma conta 1.000 vezes dentro do loop, ele a faz apenas uma vez antes de o loop começar.
+         Isso evita o desperdício de esforço computacional.
+
+    entender essa parte ajuda você a escrever um Algoritmo (etapa 2 do desenvolvimento) mais limpo e eficiente antes mesmo de começar a Codificação.
+
+Depuração/Debug/Debugging:
+    é um processo que tem a finalidade de encontrar e reduzir
+    defeitos em um software. Erros de software incluem aqueles que previnem o programa de ser executado e
+    aqueles que produzem um resultado inesperado.
+
+    Erro Sintático: É um erro na sintaxe da linguagem, em sua gramática.
+
+    Erro semântico: É um erro na “lógica de seu código”, em sua semântica – o código está sintaticamente correto, porém não faz o que se esperava dele.
+    Por isso, este tipo de erro é geralmente mais difícil de ser identificado e corrigido.
+
+    De forma geral, a depuração é uma tarefa difícil e trabalhosa, e a dificuldade varia de acordo com o am-
+    biente de desenvolvimento, o que inclui a linguagem de programação e as ferramentas disponíveis, como
+    os depuradores. Depuradores são ferramentas que permitem ao programador monitorar a execução de
+    um programa, pará-lo e reiniciá-lo, ativar pontos de parada, alterar áreas de memória e, em alguns casos,
+    “voltar no tempo” (ou seja, voltar a execução para um ponto anterior).
+
+Rastreabilidade:
+    A Rastreabilidade pode ser resumida como o "GPS" do desenvolvimento do seu sistema, permitindo que você conheça a história e o percurso de cada funcionalidade.
+    Mapa de Mudanças: É a habilidade de entender como uma alteração nos requisitos iniciais impactará o restante do software
+    Linha do Tempo (História): Permite "seguir o rastro" de um artefato para descobrir onde ele nasceu, por que foi criado e como foi implementado
+    Conhecimento do Processo: Segundo a definição do dicionário, é a capacidade de conhecer todo o ciclo de "produção" de um item, desde a sua concepção até a sua entrega final 
+    Em sistemas complexos, ela evita que o código se torne um "caos" onde ninguém sabe por que certas linhas estão lá.
+
+    Identificação não é Rastreabilidade. Não se deve confundir o termo Rastreabilidade com
+    Identificação de itens. A identificação é um meio para conseguir a rastreabilidade, mas
+    não é o único investimento a realizar ao implantar um bom sistema de rastreabilidade.
+    
+Teste Unitario:
+    Boas práticas sugerem que os testes devem ser planejados e desenvolvidos em paralelo ao desenvol-
+    vimento (e às vezes até precedê-lo) e, novamente remetendo estes testes ao código implementado, deve
+    haver um desenvolvimento de testes que possam validar o correto funcionamento de métodos e classes
+    implementadas no software.
+    A grande vantagem de produzir tais testes durante a construção da aplicação é a garantia de que pe-
+    quenas unidades do sistema estão corretas e produzirão um sistema com menos chances de apresentarem
+    defeitos de codificação, além de permitir a execução futura, no caso alterações do sistema, para verificar se
+    defeitos não foram introduzidos no software.
+
+    Nos fundamentos do teste de software, existem termos específicos, relacionados a ações do desenvolvedor do sistema, onde estes termos estão associados a diferentes eventos durante o uso do software e seu comportamento.
+    Confira a seguir os termos e seus respectivos conceitos:
+    Erro(A Causa Humana):
+        Está relacionado à ação equivocada do programador, como um erro de digitação de uma variável.
+    Defeito(O "Bug" no Código):
+        O defeito (ou bug) é a imperfeição no artefato de software (no código ou na documentação) resultante do erro.
+        Ele é a presença física do erro dentro de um componente.
+        Testes de Software e analistas de QA (Quality Assurance) servem justamente para identificar esses defeitos antes que o aplicativo chegue ao usuário final
+    Falha(O Resultado Visível):
+        A falha ocorre quando o software se desvia da entrega do serviço ou comportamento esperado
+        É o momento no qual o defeito é encontrado, fazendo com que o software apresente um comportamento diferente do esperado.
+        O Momento Crítico: É quando o usuário (ou um teste) executa o código e o defeito é "ativado", gerando um erro de processamento ou travamento.
+        Gerenciar o ciclo de vida de segurança é essencial para detectar e corrigir essas falhas, especialmente as que podem comprometer a privacidade dos dados.
+    Existem diversos tipos de testes que são realizados ao longo do ciclo de vida de um software. Observe a seguir, um breve relato sobre eles:
+    Teste Unitario:
+        É a base da pirâmide de testes e foca nas menores partes do sistema de forma isolada
+        É a base do controle de qualidade, onde o desenvolvedor valida o funcionamento isolado de cada pequena parte do código
+        Verificar funções específicas ou características como o uso de memória
+        Quem faz: O proprio desenvolvedor.
+    Teste de Integração:
+        Analisa como os diferentes módulos ou classes trabalham juntos
+        Testa as interfaces e a interação entre partes do sistema ou entre sistemas completos.
+    Teste de Sistema:
+        É uma visão holística que submete o software completo a estresse. 
+        Profissionais de QA (Garantia de Qualidade) utilizam técnicas de "caixa-preta" (focada nas saídas para o usuário) e "caixa-branca" (análise da estrutura interna) para validar se as regras de negócio e requisitos de desempenho foram atingidos.
+    Teste de Aceitação:
+        É a validação final feita pelo cliente ou usuário final.
+        O objetivo não é encontrar erros técnicos, mas demonstrar as funcionalidades e garantir que o produto resolve a necessidade real identificada na fase inicial de análise.
+
+    É importante que, para cada parte do sistema desenvolvida, seja também desenvolvido seu respectivo
+    conjunto de testes para buscar o correto funcionamento do software e reduzir defeitos causados pela im-
+    plementação do código.
+    Por fim, estes testes podem ser reaproveitados na expansão do sistema, com testes de baixo custo e alta confiabilidade.
+
+    Da mesma forma que o código pode ser alterado para suportar novas funcionalidades, o teste unitário também precisa ser modificado para refletir a implementação a ser testada.
+    Na prática, cada linguagem de programação tem bibliotecas próprias para implementação de testes.
+
+    No Java, por exemplo, existe o JUnit, que é um framework que possibilita a criação de testes de maneira
+    fácil, além de permitir a geração de relatórios.
+    No Python, temos o PyUnit, que é uma biblioteca para realização de testes unitários em Python baseada na
+    arquitetura xUnit. É a forma mais difundida para realizar a prática de testes unitários pela comunidade Python.
+    O PyUnit está presente por padrão no Python desde a versão 2.1 como biblioteca de nome unittest e
+    por isso não precisa ser instalado.
