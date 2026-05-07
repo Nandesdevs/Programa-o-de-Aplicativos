@@ -1,0 +1,53 @@
+O que é POO?
+    Paradigma de programação baseada em "objetos".
+
+    Objetos são instâncias de classes, que possuem atributos e métodos.
+
+    Favorece a reutilização de código e a modularização.
+
+Principais Conceitos:
+    Classe: Define um tipo de objeto.
+    Objeto: instância de uma classe.
+    Atributo: Características do objeto.
+    Método: Ações ou comportamentos do objeto.
+    Herança,Encapsulamento, Polimorfismo: Pilares da POO.
+
+Encapsulamento:
+    O encapsulamento é um dos quatro pilares fundamentais da Programação Orientada a Objetos (POO) e serve como uma estratégia para proteger os dados e restringir o acesso direto aos atributos de um objeto.
+
+    o encapsulamento é a estratégia de "Ocultar a Mudança.
+
+    O "Saber" Protegido: Os atributos sensíveis (como o seu saldo_inicial ou cpf) ficam escondidos dentro do objeto.
+
+    Só o método possui a "chave" para ler ou alterar os valores, garantindo que a lógica de negócio funcione.
+
+    Diferente de outras linguagens, o Python não impede "na marra" o acesso aos dados, mas utiliza convenções que os programadores respeitam:
+        _atributo (Um underline): Indica que o atributo é de uso privado da classe e não deve ser mexido por quem está "do lado de fora"
+        
+        __atributo (Dois underlines): Faz com que o interpretador mude o nome do atributo internamente, dificultando ainda mais o acesso acidental (conhecido como name mangling)
+
+    Por que usar?
+        Segurança: Impede que o saldo seja alterado diretamente para um milhão de reais sem passar por um depósito real
+        
+        Flexibilidade: Se você precisar mudar o nome de uma "coluna" interna do seu sistema, o usuário externo nem vai perceber
+
+Herança:
+    Quando queremos criar uma classe quase igual so que com algumas coisas a mais.
+
+    Criamos uma subclasse usando a classe principal como referencia
+
+    super().__init__(nome, idade): chamar o construtor da superclasse e herdar 
+
+    ele herda tudo que superclasse tem ate os metodos, exemplo:
+    def apresentar(self):
+        return super().apresentar() # veio de pessoa
+        print(f"Estou estudando {self.curso}.")
+
+Polimorfismo:
+    Um conceito grande, é uma capacidade de objetos diferentes responderem ao mesmo comando, mas cada um do seu jeito.
+    
+    Este conceito está intimamente ligado à Herança. Ele ocorre quando uma subclasse (classe filha) herda um método de uma superclasse (classe pai), mas decide "sobrescrever" (alterar) a lógica interna dessa ação para atender a uma necessidade específica
+
+        Reutilização de Código: Você pode definir funções genéricas que chamam métodos de diferentes objetos sem precisar saber exatamente qual é o tipo de cada um no momento da escrita, evitando a necessidade de reescrever lógicas semelhantes
+
+        Flexibilidade: O sistema torna-se mais fácil de expandir. Se você criar um novo tipo de objeto no futuro, ele só precisa seguir a "assinatura" do método esperado para se encaixar no sistema existente.
