@@ -21,3 +21,11 @@ print("\n".join(ble))
 # Basicamente deixa o dado puro, sem espaços, tabulação ou quebra de linha, você tambem pode escolher exatamente o que tirar
 # Por exemplo, ao processar dados estatísticos que contêm o símbolo de porcentagem, você pode usar x.strip('%')
 # Evita que o programa falhe se o usuario apertar a barra de espaço por acidente antes ou depois de escrever o nome de um filme.
+
+# .items():  É um método exclusivo do tipo de dado Dicionário (dict) Ele serve para "desempacotar" o conteúdo do dicionário, permitindo que você acesse a Chave e o Valor simultaneamente em um laço de repetição (for)
+# Sintaxe: 
+
+#meu_dicionario = {"Chave": "Valor"}
+
+#for k, v in meu_dicionario.items():
+    #print(f"Etiqueta: {k} | Dado: {v}")
