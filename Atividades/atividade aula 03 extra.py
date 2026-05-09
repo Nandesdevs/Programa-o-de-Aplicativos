@@ -59,14 +59,35 @@ veiculo_teste = Veiculo("ABC-1234", "Toyota", "Corolla", 2024, 200)
 
 #Veiculo disponivel pois não alugamos ainda
 veiculo_teste.exibir_info()
+while True:
+    resposta = input("\nAperte Enter para prosseguir: ")
+
+    if resposta == "":
+        limpar_tela()
+        break
+
+print("Prosseguindo...")
 
 #Alugou, veiculo indisponivel
 veiculo_teste.alugar()
+while True:
+    resposta = input("\nAperte Enter para prosseguir: ")
 
+    if resposta == "":
+        limpar_tela()
+        break
+
+print("Prosseguindo...")
 #Print do veiculo indisponivel
 veiculo_teste.exibir_info() 
+while True:
+    resposta = input("\nAperte Enter para prosseguir: ")
 
-limpar_tela()
+    if resposta == "":
+        limpar_tela()
+        break
+
+print("Prosseguindo...")
 # SUBCLASSES QUE VÃO HERDAR VEICULO
 # SubClasse Carro: adicional de portas.
 class Carro(Veiculo):
@@ -82,15 +103,15 @@ class Carro(Veiculo):
             dias = int(input("Quantidade de dias que o veiculo foi alugado? "))
             # Se o aluguel for maior que 7 dias, ganha 10% de desconto no valor total. 
             if dias > 7:
-                print(f"Parabéns, você alugou seu Veiculo por mais de 7 dias, o valor R${self.valor_diaria * dias} ganhou 10% de desconto...\n")
-                print(f"O valor total a ser pago, com 10% de desconto é: R${0.10 * (self.valor_diaria * dias)}")
+                print(f"Você alugou seu Veiculo por mais de 7 dias, o valor R${self.valor_diaria * dias} ganhou 10% de desconto...\n")
+                print(f"O valor total a ser pago, com 10% de desconto é: R${(0.10 * (self.valor_diaria * dias))-self.valor_diaria * dias}")
             else:
                 print(f"O valor total a ser pago é: R${self.valor_diaria * dias}")
         else:
             print("Veiculo indisponivel para aluguel.")
 
 
-meu_carro = Carro("ABC-1234", "Toyota", "Corolla pretin", 2024, 250, 4)
+meu_carro = Carro("ABC-0707", "Mitshubishi", "Corolla pretin", 2024, 250, 4)
 
 # SubClasse Moto: adicional cilindradas.
 class Moto(Veiculo):
@@ -128,7 +149,7 @@ class Caminhao(Veiculo):
             if self.capacidade_carga > 5000:
                 print(f"Detectamos que seu Caminhão pesa mais de 5 toneladas...\n")
                 print(f"Taxa de 20% de adicional ao valor de R${self.valor_diaria * dias}, por risco de desgaste")
-                print(f"O valor total a ser pago, com 20% de adicional é: R${(self.valor_diaria * 0.20) * dias}")
+                print(f"O valor total a ser pago, com 20% de adicional é: R${((self.valor_diaria * 0.20) * dias) + self.valor_diaria * dias}")
             else:
                 print(f"O valor total a ser pago é: R${self.valor_diaria * dias}")
         else:
@@ -140,3 +161,13 @@ veiculos_aluguel = [veiculo_teste, meu_carro, minha_moto, meu_caminhao]
 for veiculo in veiculos_aluguel:
     print(f"\nProcessando aluguel para: {veiculo._modelo}")
     veiculo.alugar()
+    while True:
+        resposta = input("\nAperte Enter para prosseguir: ")
+
+        if resposta == "":
+            limpar_tela()
+            break
+
+    print("Prosseguindo...")
+
+minha_moto.devolução()
