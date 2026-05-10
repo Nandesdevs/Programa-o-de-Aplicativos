@@ -157,6 +157,22 @@ class Caminhao(Veiculo):
 
 meu_caminhao = Caminhao("LMN-9999", "Volvo", "FH 540", 2022, 600.0, 20000)
 
+class Cliente(Veiculo):
+    def __init__ (self, nome, cpf, telefone)
+        self.nome = nome
+        self._cpf = cpf
+        self.telefone = telefone
+        self._veiculo_alugado = None
+    
+    # Tenta alugar o veículo. Se der certo, guarda o objeto veículo no atributo veiculo_alugado. 
+    def solicitar_aluguel(Veiculo):
+
+    # Se o cliente tiver um veículo alugado, chama o método devolver do veículo, imprime o recibo com o valor a pagar e limpa o atributo veiculo_alugado .
+    def finalizar_aluguel(dias):
+        
+
+
+
 veiculos_aluguel = [veiculo_teste, meu_carro, minha_moto, meu_caminhao]
 for veiculo in veiculos_aluguel:
     print(f"\nProcessando aluguel para: {veiculo._modelo}")
