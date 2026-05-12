@@ -17,6 +17,7 @@ class Veiculo:
         self.valor_diaria = valor_diaria
         # garantimos que _disponivel sempre será True
         self._disponivel = True
+        self._dias_alugados = None
 
     # Função para alugar carro:
     def alugar(self):
@@ -24,6 +25,7 @@ class Veiculo:
             self._disponivel = False
             print(f"Veículo {self._modelo} alugado com sucesso!")
             dias = int(input("Quantidade de dias que o veiculo foi alugado? "))
+            self._dias_alugados = dias
             print(f"O valor total a ser pago é: R${self.valor_diaria * dias}")
         else:
             print("Veiculo indisponivel para aluguel.")
@@ -47,10 +49,14 @@ class Veiculo:
         for chave, valor in dados.items():
             print(f"{chave}: {valor}")
 
-    def devolução(self):
+    def devolução(self, dias = None):
         if self._disponivel == False:
-            self._disponivel = True
-            print(f"Veículo {self._modelo} devolvido com sucesso!")
+            if dias is None:
+                dias = self._dias_alugados
+                valor_total = self.valor_diaria * dias
+                self._disponivel = True
+                print(f"Veículo {self._modelo} devolvido com sucesso!")
+                print(f"R${valor_total:.2f}")
         else:
             print(f"Erro Veículo {self._modelo} não foi alugado...")
 
@@ -101,10 +107,13 @@ class Carro(Veiculo):
             self._disponivel = False
             print(f"Veículo {self._modelo} alugado com sucesso!")
             dias = int(input("Quantidade de dias que o veiculo foi alugado? "))
+            self._dias_alugados = dias
             # Se o aluguel for maior que 7 dias, ganha 10% de desconto no valor total. 
             if dias > 7:
-                print(f"Você alugou seu Veiculo por mais de 7 dias, o valor R${self.valor_diaria * dias} ganhou 10% de desconto...\n")
-                print(f"O valor total a ser pago, com 10% de desconto é: R${(0.10 * (self.valor_diaria * dias))-self.valor_diaria * dias}")
+                valor_sem_desconto = self.valor_diaria * dias
+                valor_com_desconto = valor_sem_desconto * 0.9
+                print(f"Você alugou seu Veiculo por mais de 7 dias, o valor R${valor_sem_desconto:.2f} ganhou 10% de desconto...\n")
+                print(f"O valor total a ser pago, com 10% de desconto é: R${valor_com_desconto:.2f}")
             else:
                 print(f"O valor total a ser pago é: R${self.valor_diaria * dias}")
         else:
@@ -123,11 +132,15 @@ class Moto(Veiculo):
         return super().alugar()
 
     #  Não tem desconto, mas tem uma taxa fixa de R$ 50 para lavagem do capacete, cobrada em toda devolução.
-    def devolução(self):
+    def devolução(self, dias = None):
         if self._disponivel == False:
-            self._disponivel = True
-            print(f"Cobrança de taxa obrigatoria de R$50 para lavagem do capacete...")
-            print(f"Veículo {self._modelo} devolvido com sucesso!")
+            if dias is None:
+                dias = self._dias_alugados
+                valor_total = (self.valor_diaria * dias) + 50
+                self._disponivel = True
+                print(f"Valores + Cobrança de taxa obrigatoria de R$50 para lavagem do capacete...")
+                print(f"R${valor_total:.2f}")
+                print(f"Veículo {self._modelo} devolvido com sucesso!")
         else:
             print(f"Erro Veículo {self._modelo} não foi alugado...")
 
@@ -144,12 +157,15 @@ class Caminhao(Veiculo):
         if self._disponivel:
             self._disponivel = False
             print(f"Veículo {self._modelo} alugado com sucesso!")
-            dias = int(input("Quantidade de dias que o veiculo foi alugado? ")) 
+            dias = int(input("Quantidade de dias que o veiculo foi alugado? "))
+            self._dias_alugados = dias
             # O valor da diária aumenta em 20% se a capacidade de carga for maior que 5 toneladas (risco de desgaste). 
             if self.capacidade_carga > 5000:
+                valor_sem_adicional = self.valor_diaria * dias
+                valor_com_adicional = valor_sem_adicional * 1.20
                 print(f"Detectamos que seu Caminhão pesa mais de 5 toneladas...\n")
-                print(f"Taxa de 20% de adicional ao valor de R${self.valor_diaria * dias}, por risco de desgaste")
-                print(f"O valor total a ser pago, com 20% de adicional é: R${((self.valor_diaria * 0.20) * dias) + self.valor_diaria * dias}")
+                print(f"Taxa de 20% de adicional ao valor de R${valor_sem_adicional:.2f}, por risco de desgaste")
+                print(f"O valor total a ser pago, com 20% de adicional é: R${valor_com_adicional:.2f}")
             else:
                 print(f"O valor total a ser pago é: R${self.valor_diaria * dias}")
         else:
@@ -157,19 +173,51 @@ class Caminhao(Veiculo):
 
 meu_caminhao = Caminhao("LMN-9999", "Volvo", "FH 540", 2022, 600.0, 20000)
 
-class Cliente(Veiculo):
-    def __init__ (self, nome, cpf, telefone)
+class Cliente():
+    def __init__ (self, nome, cpf, telefone):
         self.nome = nome
         self._cpf = cpf
         self.telefone = telefone
         self._veiculo_alugado = None
     
     # Tenta alugar o veículo. Se der certo, guarda o objeto veículo no atributo veiculo_alugado. 
-    def solicitar_aluguel(Veiculo):
+    def solicitar_aluguel(self, veiculo):
+        if veiculo._disponivel:
+            veiculo.alugar()
+            self._veiculo_alugado = veiculo
+            return True
+        else:
+            print(f"Veículo {veiculo._modelo} não está disponível!")
+            return False
+    
+    # Se o cliente tiver um veículo alugado, chama o método devolver do veículo, imprime o recibo com o valor a pagar e limpa o atributo veiculo_alugado.
+    def finalizar_aluguel(self, dias = None):
+        if self._veiculo_alugado is not None:
+            self._veiculo_alugado.devolução(dias)
+            self._veiculo_alugado = None
+        else:
+            print(f"Cliente {self.nome} não possui veículo alugado!")
 
-    # Se o cliente tiver um veículo alugado, chama o método devolver do veículo, imprime o recibo com o valor a pagar e limpa o atributo veiculo_alugado .
-    def finalizar_aluguel(dias):
+    # Metodo auxiliar para mostrar veiculo alugado
+    def exibir_veiculo_alugado(self):
+        if self._veiculo_alugado is not None:
+             print(f"Veículo alugado: {self._veiculo_alugado._modelo}")
+        else:
+            print("Nenhum veículo alugado no momento")
         
+cliente_nandes = Cliente("Hernandes", "XXX.XXX.XXX-XX", 759999999)
+
+print("=== SOLICITANDO ALUGUEL ===")
+cliente_nandes.solicitar_aluguel(meu_carro)
+
+cliente_nandes.exibir_veiculo_alugado()
+
+# Finalizar aluguel (passa os dias)
+print("\n=== FINALIZANDO ALUGUEL ===")
+cliente_nandes.finalizar_aluguel()
+
+print("\n=== STATUS DO VEICULO ===")
+cliente_nandes.exibir_veiculo_alugado()
 
 
 
