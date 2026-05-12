@@ -63,37 +63,6 @@ class Veiculo:
 # Criação do veiculo para teste
 veiculo_teste = Veiculo("ABC-1234", "Toyota", "Corolla", 2024, 200)
 
-#Veiculo disponivel pois não alugamos ainda
-veiculo_teste.exibir_info()
-while True:
-    resposta = input("\nAperte Enter para prosseguir: ")
-
-    if resposta == "":
-        limpar_tela()
-        break
-
-print("Prosseguindo...")
-
-#Alugou, veiculo indisponivel
-veiculo_teste.alugar()
-while True:
-    resposta = input("\nAperte Enter para prosseguir: ")
-
-    if resposta == "":
-        limpar_tela()
-        break
-
-print("Prosseguindo...")
-#Print do veiculo indisponivel
-veiculo_teste.exibir_info() 
-while True:
-    resposta = input("\nAperte Enter para prosseguir: ")
-
-    if resposta == "":
-        limpar_tela()
-        break
-
-print("Prosseguindo...")
 # SUBCLASSES QUE VÃO HERDAR VEICULO
 # SubClasse Carro: adicional de portas.
 class Carro(Veiculo):
@@ -119,7 +88,7 @@ class Carro(Veiculo):
         else:
             print("Veiculo indisponivel para aluguel.")
 
-
+# Criação do carro
 meu_carro = Carro("ABC-0707", "Mitshubishi", "Corolla pretin", 2024, 250, 4)
 
 # SubClasse Moto: adicional cilindradas.
@@ -144,6 +113,7 @@ class Moto(Veiculo):
         else:
             print(f"Erro Veículo {self._modelo} não foi alugado...")
 
+# Criação da moto
 minha_moto = Moto("XYZ-5678", "Honda", "CB 500", 2023, 120.0, 500)
 
 # SubClasse Caminhao: adicional capacidade_carga.
@@ -171,6 +141,7 @@ class Caminhao(Veiculo):
         else:
             print("Veiculo indisponivel para aluguel.")
 
+# Criação do caminhão
 meu_caminhao = Caminhao("LMN-9999", "Volvo", "FH 540", 2022, 600.0, 20000)
 
 class Cliente():
@@ -204,34 +175,6 @@ class Cliente():
              print(f"Veículo alugado: {self._veiculo_alugado._modelo}")
         else:
             print("Nenhum veículo alugado no momento")
-        
+
+# Criação do cliente      
 cliente_nandes = Cliente("Hernandes", "XXX.XXX.XXX-XX", 759999999)
-
-print("=== SOLICITANDO ALUGUEL ===")
-cliente_nandes.solicitar_aluguel(meu_carro)
-
-cliente_nandes.exibir_veiculo_alugado()
-
-# Finalizar aluguel (passa os dias)
-print("\n=== FINALIZANDO ALUGUEL ===")
-cliente_nandes.finalizar_aluguel()
-
-print("\n=== STATUS DO VEICULO ===")
-cliente_nandes.exibir_veiculo_alugado()
-
-
-
-veiculos_aluguel = [veiculo_teste, meu_carro, minha_moto, meu_caminhao]
-for veiculo in veiculos_aluguel:
-    print(f"\nProcessando aluguel para: {veiculo._modelo}")
-    veiculo.alugar()
-    while True:
-        resposta = input("\nAperte Enter para prosseguir: ")
-
-        if resposta == "":
-            limpar_tela()
-            break
-
-    print("Prosseguindo...")
-
-minha_moto.devolução()
