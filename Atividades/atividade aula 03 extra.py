@@ -89,7 +89,7 @@ class Carro(Veiculo):
             print("Veiculo indisponivel para aluguel.")
 
 # Criação do carro
-meu_carro = Carro("ABC-0707", "Mitshubishi", "Corolla pretin", 2024, 250, 4)
+meu_carro = Carro("ABC-0707", "Mitsubishi", "Corolla pretin", 2024, 250, 4)
 
 # SubClasse Moto: adicional cilindradas.
 class Moto(Veiculo):
@@ -176,5 +176,55 @@ class Cliente():
         else:
             print("Nenhum veículo alugado no momento")
 
-# Criação do cliente      
+
+# Teste final do codigo
+# 1. Instancie pelo menos um Carro, uma Moto e um Caminhão. 
+# 2. Instancie dois Clientes
+# 3. Faça o Cliente 1 alugar o Carro. 
+# 4. Tente fazer o Cliente 2 alugar o mesmo Carro (deve dar erro!). 
+# 5. Faça o Cliente 2 alugar a Moto
+# 6. Faça os dois clientes devolverem os veículos após 10 dias e verifiquem se os cálculos (descontos e taxas) foram aplicados corretamente.
+
+
+# 1. Instancie pelo menos um Carro, uma Moto e um Caminhão (já feito)
+veiculos_alugar = [veiculo_teste, meu_carro, meu_caminhao, minha_moto]
+for veiculo in veiculos_alugar:
+    print(f"\n=== Alugando {veiculo._modelo} ===")
+    veiculo.alugar()
+    while True:
+        resposta = input("\nAperte Enter para prosseguir: ")
+
+        if resposta == "":
+            limpar_tela()
+            break
+
+    print("Prosseguindo...")
+
+# Teste 2
 cliente_nandes = Cliente("Hernandes", "XXX.XXX.XXX-XX", 759999999)
+cliente_nicolas = Cliente("Nicolas", "XXX.XXX.XXX-XX", 759999999)
+
+# Desalugando veiculos para teste
+for veiculo in veiculos_alugar:
+    print(f"=== Desalugando {veiculo._modelo} ===")
+    veiculo.devolução()
+    while True:
+        resposta = input("\nAperte Enter para prosseguir: ")
+
+        if resposta == "":
+            limpar_tela()
+            break
+
+    print("Prosseguindo...")
+
+# Teste 3 e 4, saida do teste 4 = "Véiculo Corolla pretin não está disponível!"
+cliente_nandes.solicitar_aluguel(meu_carro)
+cliente_nicolas.solicitar_aluguel(meu_carro)
+
+# Teste 5
+cliente_nicolas.solicitar_aluguel(minha_moto)
+
+# Teste 6
+# Carro = 10% adicionado com sucesso.
+# Caminhão = peso acima de 5 toneladas 20% de adicional adicionado com sucesso.
+# Moto = Cobrança de taxa de 50 reais adicionais adicionado com sucesso.
