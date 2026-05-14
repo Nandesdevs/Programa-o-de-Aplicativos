@@ -1,0 +1,9 @@
+Utilização do Framework Flask
+Flask é um microframework pois não obriga a usar um monte de ferramenta que você não precisa, dando agilidade e organização para criação de API e etc, e em vagas de python procuram ativamente Flask
+Venv é o ambiente virtual
+Comando "python -m venv venv" no terminal, python = chama o programa, -m venv = python use o modulo ambiente virtual, venv = nome da pasta
+venv\Scripts\activate = ativação do venv
+pip install Flask = Download do Flask
+pip = entregador de pacotes do python, ele pega o Flask la da internet e tras para o ambiente virtual 
+
+Flask atua como intermediario entre as requisições do navegador e a logica escrita em python.
