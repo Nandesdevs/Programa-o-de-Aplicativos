@@ -17,3 +17,9 @@ Para importar o Flask para o codigo usamos = from flask import Flask
 
 como meu app.py estava em 2 pastas e não na raiz da pasta eu usei dir para ver as pastas, e depois cd "(nome da pasta)" para entrar, ate chegar na que eu desejava, **COMANDOS ACIMA**.
 
+utilizar metodo jinja = templating do Flask
+
+as requisições do metodo http é o coração da comunicação web
+
+get é quando vc pede, para entrar no site por exemplo
+post é quando vc envia, para preencher formulario por exemplo

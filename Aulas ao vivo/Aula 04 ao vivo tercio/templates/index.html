@@ -1,0 +1,24 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <form action="/adicionar", method="POST">
+        <input type="text" name="descricao" placeholder="Digite uma nova tarefa..." required>
+        <button type="submit" >Adicionar Tarefa</button>
+
+    </form>
+    <ul>
+        {% for tarefa in lista_tarefas %}
+        <li>
+            {{tarefa.descricao}} - {% if tarefa.concluida %}Concluida{% else %}Pendente{% endif %}
+
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
