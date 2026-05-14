@@ -5,5 +5,15 @@ Comando "python -m venv venv" no terminal, python = chama o programa, -m venv = 
 venv\Scripts\activate = ativação do venv
 pip install Flask = Download do Flask
 pip = entregador de pacotes do python, ele pega o Flask la da internet e tras para o ambiente virtual 
+cls = limpa o terminal
 
 Flask atua como intermediario entre as requisições do navegador e a logica escrita em python.
+Flask é como se fosse um garçom, ele pega o pedido leva para o processamento e devolve uma resposta, e tudo isso é baseado em rotas 
+Para importar o Flask para o codigo usamos = from flask import Flask
+
+(venv) PS C:\Users\Nandes\Documents\GitHub\Programa-o-de-Aplicativos> cd "Aulas ao vivo"
+(venv) PS C:\Users\Nandes\Documents\GitHub\Programa-o-de-Aplicativos\Aulas ao vivo> cd "Aula 04 ao vivo tercio"
+(venv) PS C:\Users\Nandes\Documents\GitHub\Programa-o-de-Aplicativos\Aulas ao vivo\Aula 04 ao vivo tercio> python app.py
+
+como meu app.py estava em 2 pastas e não na raiz da pasta eu usei dir para ver as pastas, e depois cd "(nome da pasta)" para entrar, ate chegar na que eu desejava, **COMANDOS ACIMA**.
+
