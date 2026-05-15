@@ -13,15 +13,17 @@ class ContaBancaria:
         if valor > 0:
             self._saldo_inicial += valor
             self.historico.append((f"Deposito de R${valor:.2f}"))
-            print(f"\nValor de R${valor:.2f} adicionado a conta...\nSaldo atual: {self._saldo_inicial:.2f}")
+            print(f"\nValor de R${valor:.2f} adicionado a conta de {self.titular} com sucesso!")
         else:
             print("\nValor de deposito invalido!!")
 
     def sacar(self, valor):
-        if self.saldo - valor >= -self.limite_cheque_especial:
+        if self._saldo_inicial - valor >= -self._limite_cheque_especial:
             self._saldo_inicial -= valor
             self.historico.append((f"Saque de R${valor:.2f}"))
-            print(f"\nValor de R${valor:.2f} retirado da conta...\nSaldo atual: {self._saldo_inicial:.2f}")
+            print(f"\nValor de R${valor:.2f} retirado da conta de {self.titular} com sucesso!")
+        else:
+            print("\nSaldo insuficiente, mesmo com cheque especial!")
 
     def exibir_historico(self):
         print(f"\nHistorico de transação de {self.titular}")
@@ -33,6 +35,18 @@ class ContaBancaria:
     def cobrar_juros(self):
         if self._saldo_inicial < 0:
             self._saldo_inicial *= 1.05 
+
+    def transferir(self, valor, conta_destino):
+        if self._saldo_inicial - valor >= -self._limite_cheque_especial:
+            self._saldo_inicial -= valor
+            self.historico.append((f"Transferencia de R${valor:.2f} para {conta_destino.titular}"))
+            conta_destino.depositar(valor)
+            print(f"\nTransferência de R${valor:.2f} para {conta_destino.titular} concluída!")
+        else:
+            print("\nSaldo insuficiente para transferir.")
+
+
+
             
 dev_nic = ContaBancaria("Nicklaus", 3755.73)
 dev_nandes = ContaBancaria("Nantropico", 47.22)
@@ -48,3 +62,6 @@ dev_nandes.ver_extrato
 dev_nandes.exibir_historico()
 dev_nic.exibir_historico()
 dev_kaua.exibir_historico()
+
+dev_nic.transferir(1000, dev_nandes)
+dev_nandes.ver_extrato()
